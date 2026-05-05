@@ -1,5 +1,5 @@
 # 📚 
-Repositório para o projeto final da disciplina de Programação Orientada a Objetos
+Repositório para o projeto final da disciplina de Programação para Web
 
 ![alt text](Imagens(ignorar)/logo_uni.png)
 
