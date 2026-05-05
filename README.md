@@ -4,7 +4,7 @@ Repositório para o projeto final da disciplina de Programação para Web
 ![alt text](Imagens(ignorar)/logo_uni.png)
 
 ## 📌 Ideia Geral do Projeto:
-### Nome do Projeto: Sistema de Gestão de Biblioteca (SGB)
+### Nome do Projeto:
 Objetivo Geral:
 
 ### 🧩 Funcionalidades Principais:
