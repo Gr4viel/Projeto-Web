@@ -31,9 +31,8 @@ O sistema permitirá gerir livros, utilizadores e empréstimos, sendo implementa
 - Java (JDK 8 ou superior)
 
 **Ambiente de Execução:**
-- Terminal / Consola
-- Python: VS Code & PyCharm
-- Java: VS Code & Eclipse
+- Visual Studio Code
+
 
 ## 👥 Autores:
 
@@ -43,13 +42,5 @@ O sistema permitirá gerir livros, utilizadores e empréstimos, sendo implementa
 
 ## 📖 Referências e Apoio:
 ### Aqui estão listados os anexos dos sites utilizados durante a criação deste projeto. 
-https://realpython.com/python-json/
-https://docs.python.org/3/
-https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
-https://www.w3schools.com/java/java_classes.asp
-https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals
-https://hub.asimov.academy/tutorial/lendo-e-escrevendo-arquivos-json-em-python
-https://www.oracle.com/br/technical-resources/articles/java/api-java-to-json.html
-https://www.w3schools.com/java/java_ref_reference.asp
 
 (Entre outros)
