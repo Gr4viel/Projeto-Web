@@ -5,7 +5,7 @@ Repositório para o projeto final da disciplina de Programação para Web
 
 ## 📌 Ideia Geral do Projeto:
 ### Nome do Projeto:
-Objetivo Geral:
+Objetivo Geral:Criar um site que mostra quase todos os eventos desportivos
 
 ### 🧩 Funcionalidades Principais:
 
