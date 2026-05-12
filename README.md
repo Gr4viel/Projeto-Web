@@ -34,3 +34,8 @@ Objetivo Geral:Criar um site que mostra quase todos os eventos desportivos
 ### Aqui estão listados os anexos dos sites utilizados durante a criação deste projeto. 
 
 (Entre outros)
+
+# Ideias de proojeto (Rascunhos)
+- Cemtro desportivo, informações sobre vários desportos;
+- Dashboard ambiental, informações sobre o clima;
+- Site de cultura gaming e cinemática, centro de informações sobre vários tipos de jogos e gêneros cinematográficos;
