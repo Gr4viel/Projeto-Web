@@ -5,14 +5,25 @@ Repositório para o projeto final da disciplina de Programação para Web
 
 ## 📌 Ideia Geral do Projeto:
 ### Nome do Projeto:
-Objetivo Geral:Criar um site que mostra quase todos os eventos desportivos
+Objetivo Geral: Criar uma plataforma centralizada de cultura gaming e cinemática, oferece um centro de informações detalhadas sobre diversos tipos de jogos, filmes e os seus respetivos géneros.
 
 ### 🧩 Funcionalidades Principais:
+Exploração Multimodal: Navegação entre abas dedicadas a Cinema (Filmes/Séries) e Gaming (Jogos).
 
--
+Filtragem Dinâmica: Sistema de filtros laterais (sidebar) para explorar conteúdos por categorias (Populares, Lançamentos, Melhores de Sempre), géneros e plataformas específicas.
+
+Pesquisa: Barra de pesquisa funcional que consome dados de APIs externas para encontrar títulos específicos.
 
 ### 🌳 Estrutura do Projeto:
-- 
+index.html: Estrutura principal da secção de filmes.
+
+index.css: Costumização completa, incluindo a sidebar a grelha de posters verticais.
+
+jogos.html: Estrutura dedicada à secção de gaming com filtros de plataforma.
+
+jogos.css: Costumização completa, incluindo a sidebar e a grelha de posters verticais.
+
+app.js: Lógica de consumo de APIs (TMDB para filmes e RAWG para jogos) e manipulação dinâmica do DOM.
 
 ### 💻 Tecnologias Utilizadas:
 **Linguagens de Programação:**
@@ -23,6 +34,8 @@ Objetivo Geral:Criar um site que mostra quase todos os eventos desportivos
 **Ambiente de Execução:**
 - Visual Studio Code
 
+**APIs Externas**
+TMDB API (Cinema) e RAWG API (Games).  
 
 ## 👥 Autores:
 
