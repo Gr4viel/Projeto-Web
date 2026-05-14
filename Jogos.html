@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PopExplore - Jogos</title>
+    <link rel="stylesheet" href="jogos.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">PopExplore</div>
+        
+        <div class="nav-links">
+            <a href="index.html">Filmes</a>
+            <a href="jogos.html" class="active">Jogos</a>
+        </div>
+
+        <h2 id="pageTitle" class="dynamic-title">💻 PC</h2>
+
+        <div class="search-container">
+            <div class="filter-wrapper">
+                <select id="gameGenreSelect" class="nav-select">
+                    <option value="">Todos os Géneros</option>
+                    <option value="4">Ação</option>
+                    <option value="42">Terror</option>
+                    <option value="51">Indie</option>
+                    <option value="3">Aventura</option>
+                    <option value="5">RPG</option>
+                </select>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchBar" placeholder="Pesquisar jogos...">
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Explorar Jogos</h3>
+            <button onclick="changeGameFilter('popular', '🔥 Populares', this)">🔥 Populares</button>
+            <button onclick="changeGameFilter('recent', '📅 Lançamentos', this)">📅 Lançamentos</button>
+            <button onclick="changeGameFilter('top', '🏆 Melhores de Sempre', this)">🏆 Melhores de Sempre</button>
+            
+            <hr style="border: 0; border-top: 1px solid #333; margin: 20px 0;">
+            
+            <h3>Plataformas</h3>
+            <button class="active-filter" onclick="fetchGameByPlatform('1', '💻 PC', this)">💻 PC</button>
+            <button onclick="fetchGameByPlatform('187', 'PlayStation 5', this)">PlayStation 5</button>
+            <button onclick="fetchGameByPlatform('186', '❎ Xbox Series X', this)">Xbox Series X</button>
+            <button onclick="fetchGameByPlatform('7', 'Nintendo Switch', this)">Nintendo Switch</button>
+        </aside> 
+    </div>
+
+</body>
+</html>
