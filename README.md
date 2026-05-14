@@ -1,7 +1,7 @@
 # 📚 
 Repositório para o projeto final da disciplina de Programação para Web
 
-![alt text](Imagens(ignorar)/logo_uni.png)
+![alt text](logo_uni.png)
 
 ## 📌 Ideia Geral do Projeto:
 ### Nome do Projeto:
