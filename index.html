@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>PopExplore - Cinema</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">PopExplore</div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Filmes</a>
+            <a href="jogos.html">Jogos</a>
+        </div>
+
+        <h2 id="pageTitle" class="dynamic-title">🍿 Populares</h2>
+
+        <div class="search-box">
+            <input type="text" id="searchBar" placeholder="Pesquisar filmes ou séries...">
+        </div>
+    </nav>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Categorias</h3>
+            <button class="active-filter" onclick="filterType('movie', '🎬 Filmes Populares'); highlightButton(this)">🎬 Filmes Populares</button>
+            <button onclick="filterType('tv', '📺 Séries Populares'); highlightButton(this)">📺 Séries Populares</button>
+            <hr>
+            <h3>Géneros</h3>
+            <button onclick="fetchByGenre(28, '🔥 Ação'); highlightButton(this)">🔥 Ação</button>
+            <button onclick="fetchByGenre(27, '👻 Terror'); highlightButton(this)">👻 Terror</button>
+            <button onclick="fetchByGenre(35, '😂 Comédia'); highlightButton(this)">😂 Comédia</button>
+            <button onclick="fetchByGenre(878, '🚀 Ficção Científica'); highlightButton(this)">🚀 Ficção Científica</button>
+        </aside>
+
+    </div>
+
+    
+</body>
+</html>
