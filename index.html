@@ -1,41 +1,129 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>PopExplore - Cinema</title>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="logo">PopExplore</div>
-        <div class="nav-links">
-            <a href="index.html" class="active">Filmes</a>
-            <a href="jogos.html">Jogos</a>
-        </div>
+// filmes.js
 
-        <h2 id="pageTitle" class="dynamic-title">🍿 Populares</h2>
+// chaves e urls das APIs
+const CONFIG = {
+    tmdb_key: '169f0ea8d712d4258f6794fa373e4139',
+    tmdb_base: 'https://api.themoviedb.org/3'
+};
 
-        <div class="search-box">
-            <input type="text" id="searchBar" placeholder="Pesquisar filmes ou séries...">
-        </div>
-    </nav>
 
-    <div class="container">
-        <aside class="sidebar">
-            <h3>Categorias</h3>
-            <button class="active-filter" onclick="filterType('movie', '🎬 Filmes Populares'); highlightButton(this)">🎬 Filmes Populares</button>
-            <button onclick="filterType('tv', '📺 Séries Populares'); highlightButton(this)">📺 Séries Populares</button>
-            <hr>
-            <h3>Géneros</h3>
-            <button onclick="fetchByGenre(28, '🔥 Ação'); highlightButton(this)">🔥 Ação</button>
-            <button onclick="fetchByGenre(27, '👻 Terror'); highlightButton(this)">👻 Terror</button>
-            <button onclick="fetchByGenre(35, '😂 Comédia'); highlightButton(this)">😂 Comédia</button>
-            <button onclick="fetchByGenre(878, '🚀 Ficção Científica'); highlightButton(this)">🚀 Ficção Científica</button>
-        </aside>
+const grid = document.getElementById('contentGrid');
 
-    </div>
 
-    
-</body>
-</html>
+function updateHeaderTitle(text) {
+    let titleElement = document.getElementById('pageTitle');
+    if (titleElement) titleElement.innerText = text;
+}
+
+
+function highlightButton(btn) {
+    if (!btn) return;
+    document.querySelectorAll('.sidebar button').forEach(function(b) {
+        b.classList.remove('active-filter');
+    });
+    btn.classList.add('active-filter');
+}
+
+
+function fetchData(url, category) {
+    // mostrar loading enquanto carrega
+    if (grid) grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:80px; color:#888">A carregar...</div>';
+
+    fetch(url)
+        .then(function(res) {
+            return res.json();
+        })
+        .then(function(data) {
+            let items = data.results || [];
+
+            // se não houver resultados mostrar mensagem
+            if (items.length === 0) {
+                grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:100px; color:white"><h2>Sem resultados encontrados.</h2></div>';
+                return;
+            }
+
+            // ordenar por pontuação decrescente
+            items.sort(function(a, b) {
+                return (b.vote_average || 0) - (a.vote_average || 0);
+            });
+
+            render(items, category);
+        })
+        .catch(function(err) {
+            console.error('Erro na busca:', err);
+            grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:100px; color:#888">Erro ao carregar dados.</div>';
+        });
+}
+
+
+function filterType(category, titleName) {
+    updateHeaderTitle(titleName);
+    let url = CONFIG.tmdb_base + '/' + category + '/popular?api_key=' + CONFIG.tmdb_key + '&language=pt-PT';
+    fetchData(url, category);
+}
+
+
+function fetchByGenre(genreId, titleName) {
+    updateHeaderTitle(titleName);
+    let url = CONFIG.tmdb_base + '/discover/movie?api_key=' + CONFIG.tmdb_key + '&with_genres=' + genreId + '&language=pt-PT&sort_by=popularity.desc';
+    fetchData(url, 'movie');
+}
+
+
+function render(items, category) {
+    if (!grid) return;
+
+    grid.innerHTML = items.map(function(item) {
+        let title = item.title || item.name || 'Sem título';
+
+      
+        let img = item.poster_path
+            ? 'https://image.tmdb.org/t/p/w500' + item.poster_path
+            : 'https://via.placeholder.com/500x750';
+
+       o
+        let rating = 'N/A';
+        if (item.vote_average && item.vote_average > 0) {
+            rating = parseFloat(item.vote_average).toFixed(1);
+        }
+
+        let infoHTML = '<div class="rating-badge">⭐ ' + rating + '</div>';
+
+        // criar o link para a página de detalhes
+        return '<a href="detalhes.html?id=' + item.id + '&type=' + category + '" class="card-link">' +
+            '<div class="card">' +
+                '<div class="card-img-container">' +
+                    '<img src="' + img + '" alt="' + title + '" loading="lazy">' +
+                '</div>' +
+                '<div class="card-info">' +
+                    '<h3>' + title + '</h3>' +
+                    infoHTML +
+                '</div>' +
+            '</div>' +
+        '</a>';
+    }).join('');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    let searchBar = document.getElementById('searchBar');
+
+    if (searchBar) {
+        
+        searchBar.addEventListener('input', function(e) {
+            let query = e.target.value.trim();
+
+        
+            if (query.length === 0) {
+                filterType('movie', '🍿 Populares');
+                return;
+            }
+
+
+            if (query.length > 2) {
+                fetchData(CONFIG.tmdb_base + '/search/multi?api_key=' + CONFIG.tmdb_key + '&query=' + query + '&language=pt-PT', 'movie');
+            }
+        });
+    }
+
+    filterType('movie', '🍿 Populares');
+});
