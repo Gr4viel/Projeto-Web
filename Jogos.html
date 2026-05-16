@@ -9,32 +9,20 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo">PopExplore</div>
-        
-        <div class="nav-links">
-            <a href="index.html">Filmes</a>
-            <a href="jogos.html" class="active">Jogos</a>
-        </div>
+    <div class="logo">PopExplore</div>
+    
+    <div class="nav-links">
+    <a href="index.html">Filmes</a>
+    <!-- Adiciona class="active" aqui -->
+    <a href="jogos.html" class="active">Jogos</a>
+</div>
 
-        <h2 id="pageTitle" class="dynamic-title">💻 PC</h2>
+    <h2 id="pageTitle" class="dynamic-title">...</h2>
 
-        <div class="search-container">
-            <div class="filter-wrapper">
-                <select id="gameGenreSelect" class="nav-select">
-                    <option value="">Todos os Géneros</option>
-                    <option value="4">Ação</option>
-                    <option value="42">Terror</option>
-                    <option value="51">Indie</option>
-                    <option value="3">Aventura</option>
-                    <option value="5">RPG</option>
-                </select>
-            </div>
-
-            <div class="search-box">
-                <input type="text" id="searchBar" placeholder="Pesquisar jogos...">
-            </div>
-        </div>
-    </nav>
+    <div class="search-box">
+        <input type="text" id="searchBar" placeholder="Pesquisar jogos...">
+    </div>
+</nav>
 
     <div class="container">
         <aside class="sidebar">
@@ -50,8 +38,15 @@
             <button onclick="fetchGameByPlatform('187', 'PlayStation 5', this)">PlayStation 5</button>
             <button onclick="fetchGameByPlatform('186', '❎ Xbox Series X', this)">Xbox Series X</button>
             <button onclick="fetchGameByPlatform('7', 'Nintendo Switch', this)">Nintendo Switch</button>
-        </aside> 
+ </aside> 
+ <main>
+            <div id="contentGrid" class="movie-grid" data-type="games">
+            </div>
+        </main>
     </div>
 
+    <!-- Script principal -->
+    <script src="jogos.js"></script>
 </body>
 </html>
+
