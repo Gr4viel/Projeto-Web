@@ -23,7 +23,6 @@ jogos.html: Estrutura dedicada à secção de gaming com filtros de plataforma.
 
 jogos.css: Costumização completa, incluindo a sidebar e a grelha de posters verticais.
 
-app.js: Lógica de consumo de APIs (TMDB para filmes e RAWG para jogos) e manipulação dinâmica do DOM.
 
 ### 💻 Tecnologias Utilizadas:
 **Linguagens de Programação:**
