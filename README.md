@@ -1,4 +1,4 @@
-# 📚 
+# 📚 PopExplore
 Repositório para o projeto final da disciplina de Programação para Web
 
 ![alt text](logo_uni.png)
